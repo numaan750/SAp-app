@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Background from "@/assets/welcome-bg.jpg";
-import playstor from "@/Assets/app-store.png";
-import google from "@/Assets/google-Play.png";
+import playstor from "@/assets/app-store.png";
+import google from "@/assets/google-Play.png";
 import hero from "@/assets/hero-thumb.png";
 
 export default function Home() {
