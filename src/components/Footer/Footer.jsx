@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import Logo from "@/assets/logo.png";
 import Google from "@/assets/google-img.png";
-import App from "@/Assets/app-store-img.png";
+import App from "@/assets/app-store-img.png";
 
 const Footer = () => {
   return (

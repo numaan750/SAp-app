@@ -1,10 +1,10 @@
 // app/page.jsx
 
 import Image from "next/image";
-import Background from "@/assets/welcome-bg.jpg";
-import playstor from "@/assets/app-store.png";
-import google from "@/assets/google-Play.png";
-import hero from "@/assets/hero-thumb.png";
+import Background from "@/Assets/welcome-bg.jpg";
+import playstor from "@/Assets/app-store.png";
+import google from "@/Assets/google-play.png";
+import hero from "@/Assets/hero-thumb.png";
 
 export default function Home() {
   return (
