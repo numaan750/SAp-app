@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Background from "@/Assets/welcome-bg.jpg";
 import playstor from "@/Assets/app-store.png";
-import google from "@/Assets/google-play.png";
+import google from "@/Assets/google-Play.png";
 import hero from "@/Assets/hero-thumb.png";
 
 export default function Home() {
