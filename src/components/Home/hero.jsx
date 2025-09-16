@@ -8,7 +8,7 @@ import hero from "@/Assets/hero-thumb.png";
 
 export default function Home() {
   return (
-    <div className="relative" >
+    <div id="hero" className="relative" >
       <Image
           src={Background}
           alt="background"

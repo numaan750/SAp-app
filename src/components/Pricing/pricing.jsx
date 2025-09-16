@@ -4,7 +4,7 @@ import { FaBicycle, FaMotorcycle } from "react-icons/fa";
 
 export default function Pricing() {
   return (
-    <section className="w-full py-20 bg-gray-100">
+    <section id="pricing" className="w-full py-20 bg-gray-100">
       <div className="Mycontainer text-center">
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">

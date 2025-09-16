@@ -24,7 +24,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="Mycontainer w-full py-16 bg-white">
+    <section id="features" className="Mycontainer w-full py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 text-center">
         {/* small badge */}
         <span className="inline-block px-4 py-1 mb-4 text-sm font-medium text-black bg-purple-100 rounded-full">

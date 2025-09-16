@@ -38,7 +38,7 @@ const InterfaceSection = () => {
   });
 
   return (
-    <section className="w-full py-20 bg-white overflow-hidden">
+    <section id="screenshots" className="w-full py-20 bg-white overflow-hidden">
       <div className="Mycontainer max-w-7xl mx-auto  text-center">
         {/* Small Tag with Icon */}
         <div className="flex items-center justify-center gap-2 text-black font-semibold text-sm">

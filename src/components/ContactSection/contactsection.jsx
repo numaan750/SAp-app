@@ -2,7 +2,7 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function ContactSection() {
   return (
-    <section className="w-full py-20  bg-[#f9fbff]">
+    <section id="contact" className="w-full py-20  bg-[#f9fbff]">
       {/* Container andar rakhna hai */}
       <div className="Mycontainer max-w-7xl mx-auto px-6">
         

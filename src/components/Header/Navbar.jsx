@@ -52,7 +52,7 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl  Mycontainer mx-auto  py-3 flex items-center justify-between">
+      <div className="max-w-7xl Mycontainer mx-auto py-3 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex items-center">
           <Image
@@ -88,8 +88,9 @@ const Navbar = () => {
             </ul>
           </li>
 
+          {/* Features link */}
           <li className="cursor-pointer hover:text-purple-500 transition-colors">
-            Features
+            <a href="#features">Features</a>
           </li>
 
           {/* Pages dropdown */}
@@ -128,14 +129,15 @@ const Navbar = () => {
             </ul>
           </li>
 
+          {/* Other links */}
           <li className="cursor-pointer hover:text-purple-500 transition-colors">
-            Screenshots
+            <a href="#screenshots">Screenshots</a>
           </li>
           <li className="cursor-pointer hover:text-purple-500 transition-colors">
-            Pricing
+            <a href="#pricing">Pricing</a>
           </li>
           <li className="cursor-pointer hover:text-purple-500 transition-colors">
-            Contact
+            <a href="#contact">Contact</a>
           </li>
         </ul>
 
@@ -170,7 +172,7 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
           />
           {/* Drawer */}
-          <aside className="relative ml-auto h-full w-full bg-white  text-black shadow-lg transform transition-transform duration-300 animate-slideIn">
+          <aside className="relative ml-auto h-full w-full bg-white text-black shadow-lg transform transition-transform duration-300 animate-slideIn">
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200">
               <h2 className="text-2xl font-bold">Menu</h2>
@@ -180,7 +182,7 @@ const Navbar = () => {
             </div>
 
             {/* Menu Items */}
-            <div className="overflow-y-auto bg-white  h-[calc(100vh-72px)] px-6 pb-8 space-y-2 font-semibold text-xl">
+            <div className="overflow-y-auto bg-white h-[calc(100vh-72px)] px-6 pb-8 space-y-2 font-semibold text-xl">
               {/* Home dropdown */}
               <div>
                 <button
@@ -286,17 +288,18 @@ const Navbar = () => {
                 </div>
               </div>
 
+              {/* Smooth scroll links in mobile */}
               <div className="py-3 cursor-pointer hover:text-purple-600">
-                Features
+                <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
               </div>
               <div className="py-3 cursor-pointer hover:text-purple-600">
-                Screenshots
+                <a href="#screenshots" onClick={() => setMenuOpen(false)}>Screenshots</a>
               </div>
               <div className="py-3 cursor-pointer hover:text-purple-600">
-                Pricing
+                <a href="#pricing" onClick={() => setMenuOpen(false)}>Pricing</a>
               </div>
               <div className="py-3 cursor-pointer hover:text-purple-600">
-                Contact
+                <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
               </div>
             </div>
           </aside>
