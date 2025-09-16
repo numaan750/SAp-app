@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { FaChevronDown, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
-import Logo from "@/assets/logo.png";
+import Logo from "@/Assets/logo.png";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
