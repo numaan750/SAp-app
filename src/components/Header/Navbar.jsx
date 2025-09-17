@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 import { FaChevronDown, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import Logo from "@/Assets/logo.png";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // jitne chahiye utne weight add karo
+});
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -65,9 +71,9 @@ const Navbar = () => {
 
         {/* Center: Desktop Nav (shifted slightly towards search) */}
         <ul
-          className={`hidden md:flex space-x-7 ml-85 font-semibold items-center transition-colors duration-300 ${
+          className={` ${poppins.className} hidden md:flex space-x-7 ml-85 font-semibold items-center transition-colors duration-300 ${
             scrolled ? "text-black" : "text-white"
-          } text-lg mx-auto mr-12`}
+          } text-md mx-auto mr-12`}
         >
           {/* Home dropdown */}
           <li className="relative cursor-pointer group">
