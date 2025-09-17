@@ -48,12 +48,10 @@ const InterfaceSection = () => {
       <div className="Mycontainer max-w-7xl mx-auto text-center">
         {/* Small Tag with Icon */}
         <div
-          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-200 ${poppins.className}`}
+          className={`inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-gray-100 border border-gray-200 ${poppins.className}`}
         >
           <Wand2 className="w-5 h-5 text-[#7d4fe0]" />
-          <span className="font-semibold  text-black">
-            Awesome Interface
-          </span>
+          <span className="font-semibold  text-black">Awesome Interface</span>
         </div>
 
         {/* Heading */}
@@ -65,7 +63,7 @@ const InterfaceSection = () => {
         </h2>
 
         {/* Purple line under heading */}
-<div className="w-16 h-1 bg-[#7d4fe0] rounded-full mx-auto mt-3"></div>
+        <div className="w-16 h-1 bg-[#7d4fe0] rounded-full mx-auto mt-3"></div>
 
         {/* Paragraph */}
         <p
@@ -93,12 +91,13 @@ const InterfaceSection = () => {
         {/* Pagination Dots */}
         <div className="flex justify-center gap-3 mt-8">
           {Screenshot.map((_, i) => (
-            <span
+            <button
               key={i}
-              className={`h-2 w-8 rounded-full transition-all duration-300 ${
-                currentSlide === i ? "bg-purple-600" : "bg-gray-300"
+              onClick={() => instanceRef.current?.moveToIdx(i)} // 👉 dot click par slide change
+              className={`h-1 w-12 rounded-full transition-all duration-300 ${
+                currentSlide === i ? "bg-[#7d4fe0]" : "bg-gray-300"
               }`}
-            ></span>
+            ></button>
           ))}
         </div>
       </div>
