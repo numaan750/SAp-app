@@ -23,14 +23,14 @@ const points = [
 const CommunicateSection = () => {
   return (
     <section className="w-full bg-white py-20">
-      <div className="Mycontainer max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center px-6 lg:px-12">
+      <div className="Mycontainer max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center ">
         
         {/* Left image */}
-        <div className="flex justify-center">
+        <div className=" flex justify-center">
           <Image
             src={thumb2}
             alt="App"
-            className="w-[350px] sm:w-[450px] md:w-[600px] lg:w-[700px] xl:w-[800px] object-contain drop-shadow-2xl"
+            className="w-[400px]   md:w-[600px] lg:w-[700px] xl:w-[800px] object-cover drop-shadow-2xl"
           />
         </div>
 
