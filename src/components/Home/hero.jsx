@@ -26,7 +26,7 @@ export default function Home() {
         className="object-cover object-center"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#5636d6]/90"></div>
+      <div className="absolute inset-0 bg-[#5636d6]/96"></div>
 
       {/* Hero Section */}
       <section className="relative w-full">
