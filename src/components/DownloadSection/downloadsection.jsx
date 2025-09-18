@@ -1,23 +1,30 @@
+"use client";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export function DownloadSection() {
   return (
     <section
-      className="relative w-full bg-cover bg-center py-20 bg-fixed"
+      className={`${poppins.className} relative w-full min-h-screen bg-cover bg-center flex items-center justify-center bg-fixed`}
       style={{ backgroundImage: "url('download-bg.jpg')" }}
     >
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <div className="absolute inset-0 bg-[rgba(16,16,45,1)]/85"></div>
 
-      <div className="relative z-10 Mycontainer text-center text-white">
+      {/* Content */}
+      <div className="relative z-10 Mycontainer text-center text-white flex flex-col justify-center items-center px-4 py-12 sm:py-0">
+        
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold">
+        <h2 className="font-semibold text-[32px] sm:text-[36px] md:text-[48px] leading-tight mb-6">
           sApp is available for all devices
         </h2>
 
-        {/* Purple Line */}
-        <div className="w-20 h-1 bg-purple-600 rounded-full mx-auto mt-4"></div>
-
         {/* Paragraph */}
-        <p className="mt-6 max-w-2xl mx-auto">
+        <p className="font-normal text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed max-w-md sm:max-w-lg md:max-w-2xl mb-10">
           Enjoy the versatility of sApp, designed to seamlessly function on all
           devices. Whether you’re using a smartphone, tablet, or desktop,
           download the app now and experience its powerful features anytime,
@@ -25,13 +32,21 @@ export function DownloadSection() {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
-          <img src="/google-play.png" alt="Google Play" className="h-12" />
-          <img src="/app-store.png" alt="App Store" className="h-12" />
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
+          <img
+            src="/google-play.png"
+            alt="Google Play"
+            className="h-14 sm:h-16 md:h-20 cursor-pointer"
+          />
+          <img
+            src="/app-store.png"
+            alt="App Store"
+            className="h-14 sm:h-16 md:h-20 cursor-pointer"
+          />
         </div>
 
-        {/* Small Text Under Buttons */}
-        <p className="mt-6 text-sm text-gray-200 italic">
+        {/* Small Text */}
+        <p className="font-light italic text-[14px] md:text-[16px] text-gray-200">
           * Available on iPhone, iPad and all Android devices
         </p>
       </div>
