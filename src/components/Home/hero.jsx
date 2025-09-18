@@ -29,7 +29,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-[#5636d6]/90"></div>
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-screen">
+      <section className="relative w-full">
         <div className="Mycontainer relative z-10 container mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center pt-24 md:pt-32 pb-10 md:pb-16">
           
           {/* Left Text */}

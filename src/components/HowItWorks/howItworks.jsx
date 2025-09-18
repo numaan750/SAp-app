@@ -40,7 +40,7 @@ const steps = [
 const HowItWorks = () => {
   return (
     <section
-      className="w-full min-h-screen md:h-screen flex items-start md:items-center 
+      className="w-full lg:py-20 flex items-start md:items-center 
       bg-gradient-to-r from-[#5337de] via-[#6948e1] to-[#8056e3] 
       text-white py-16 md:py-0"
     >

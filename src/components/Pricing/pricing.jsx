@@ -14,7 +14,7 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className={`${poppins.className} w-full min-h-screen py-20 bg-[#f7faff]`}
+      className={`${poppins.className} w-full  py-20 bg-[#f7faff]`}
     >
       <div className="Mycontainer text-center">
         {/* Heading */}

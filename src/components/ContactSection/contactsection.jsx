@@ -11,7 +11,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className={`${poppins.className} relative w-full min-h-screen py-20 bg-[#f9fbff] flex items-center`}
+      className={`${poppins.className} relative w-full py-20 bg-[#f9fbff] flex items-center`}
     >
       <div className="Mycontainer max-w-7xl mx-auto w-full">
         {/* Top Heading Center (always center) */}

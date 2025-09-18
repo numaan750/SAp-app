@@ -11,7 +11,7 @@ const poppins = Poppins({
 export function SubscribeSection() {
   return (
     <section
-      className={`${poppins.className} relative w-full min-h-[80vh] bg-white overflow-hidden flex items-center justify-center`}
+      className={`${poppins.className} relative w-full lg:py-20 py-20 bg-white overflow-hidden flex items-center justify-center`}
     >
       {/* Background world map */}
       <div className="absolute inset-0 flex items-center justify-center opacity-10">

@@ -9,7 +9,7 @@ const poppins = Poppins({
 export function DownloadSection() {
   return (
     <section
-      className={`${poppins.className} relative w-full min-h-screen bg-cover bg-center flex items-center justify-center bg-fixed`}
+      className={`${poppins.className} relative w-full lg:py-20 bg-cover bg-center flex items-center justify-center bg-fixed`}
       style={{ backgroundImage: "url('download-bg.jpg')" }}
     >
       {/* Dark Overlay */}
@@ -24,7 +24,7 @@ export function DownloadSection() {
         </h2>
 
         {/* Paragraph */}
-        <p className="font-normal text-[16px] sm:text-[17px] md:text-[18px] leading-relaxed max-w-md sm:max-w-lg md:max-w-2xl mb-10">
+        <p className="font-normal text-[14px] sm:text-[16px] md:text-[14px] leading-relaxed max-w-md sm:max-w-lg md:max-w-2xl mb-10">
           Enjoy the versatility of sApp, designed to seamlessly function on all
           devices. Whether you’re using a smartphone, tablet, or desktop,
           download the app now and experience its powerful features anytime,
@@ -36,12 +36,12 @@ export function DownloadSection() {
           <img
             src="/google-play.png"
             alt="Google Play"
-            className="h-14 sm:h-16 md:h-20 cursor-pointer"
+            className="h-14 sm:h-16 md:h-16 cursor-pointer"
           />
           <img
             src="/app-store.png"
             alt="App Store"
-            className="h-14 sm:h-16 md:h-20 cursor-pointer"
+            className="h-14 sm:h-16 md:h-16 cursor-pointer"
           />
         </div>
 

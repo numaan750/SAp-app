@@ -46,7 +46,7 @@ export default function FAQ() {
 
   return (
     <section className={`${poppins.className} w-full py-16 sm:py-20 bg-white`}>
-      <div className="Mycontainer text-center px-4 sm:px-6 lg:px-8">
+      <div className="Mycontainer text-center  sm:px-6 lg:px-8">
         {/* Heading */}
         <h2 className="font-bold text-[32px] md:text-[48px] text-gray-900 leading-snug">
           Frequently Asked{" "}

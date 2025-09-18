@@ -41,7 +41,7 @@ export default function TeamSection() {
 
   return (
     <section
-      className={`${poppins.className} w-full min-h-screen flex items-center bg-white mb-20`}
+      className={`${poppins.className} w-full flex items-center bg-white mb-20`}
     >
       <div className="Mycontainer text-center w-full">
         {/* Heading */}
