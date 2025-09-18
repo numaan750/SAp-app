@@ -1,7 +1,6 @@
 "use client";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { Poppins } from "next/font/google";
-import { motion } from "framer-motion";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,15 +9,11 @@ const poppins = Poppins({
 
 export default function ContactSection() {
   return (
-    <motion.section
+    <section
       id="contact"
-      initial={{ opacity: 0, y: 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: true }}
       className={`${poppins.className} relative w-full min-h-screen py-20 bg-[#f9fbff] flex items-center`}
     >
-      <div className="Mycontainer max-w-7xl mx-auto px-6 w-full">
+      <div className="Mycontainer max-w-7xl mx-auto w-full">
         {/* Top Heading Center (always center) */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-semibold text-[32px] md:text-[48px] text-gray-900 leading-snug">
@@ -65,7 +60,7 @@ export default function ContactSection() {
               </li>
 
               <li className="flex items-center gap-4">
-                <div className="w-28 h-15 md:w-14 md:h-14 flex items-center justify-center bg-[#7d4fe0] text-white rounded-lg">
+                <div className="w-14 h-14 flex items-center justify-center bg-[#7d4fe0] text-white rounded-lg">
                   <FaMapMarkerAlt size={24} />
                 </div>
                 <span className="font-normal text-[19px] text-gray-800">
@@ -106,6 +101,6 @@ export default function ContactSection() {
           </form>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
