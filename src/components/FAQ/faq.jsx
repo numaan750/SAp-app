@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import { PlusIcon, MinusIcon } from "@heroicons/react/24/solid";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
 
 const faqs = [
   {
@@ -39,51 +45,59 @@ export default function FAQ() {
   };
 
   return (
-    <section className="w-full py-20 bg-white">
-      <div className="Mycontainer text-center">
+    <section className={`${poppins.className} w-full py-16 sm:py-20 bg-white`}>
+      <div className="Mycontainer text-center px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900">
-          Frequently Asked <br /> Questions
+        <h2 className="font-bold text-[32px] md:text-[48px] text-gray-900 leading-snug">
+          Frequently Asked{" "}
+          <span className="hidden md:inline">
+            <br />
+          </span>{" "}
+          Questions
         </h2>
 
         {/* Purple Line */}
-        <div className="w-20 h-1 bg-purple-600 rounded-full mx-auto mt-4"></div>
+        <div className="w-12 sm:w-14 h-[3px] sm:h-[4px] bg-[#7d4fe0] rounded-full mx-auto mt-1 sm:mt-2"></div>
 
         {/* Subtitle */}
-        <p className="text-lg text-gray-600 mt-6 max-w-2xl mx-auto">
+        <p className="font-normal text-[15px] sm:text-[17px] text-[#56596b] mt-2 sm:mt-3 max-w-3xl mx-auto leading-relaxed">
           Find answers to the most common questions, covering everything from
           setup to advanced features, to help you get the most out of the
           platform.
         </p>
 
         {/* FAQ List */}
-        <div className="mt-14 max-w-3xl mx-auto text-left space-y-4">
+        <div className="mt-10 sm:mt-14 max-w-5xl mx-auto space-y-3 sm:space-y-4 text-left">
           {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden"
-            >
+            <div key={index} className="transition">
+              {/* Question */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center px-6 py-4 text-left text-lg font-medium text-gray-900 bg-gray-50 hover:bg-gray-100 transition"
+                className="w-full flex justify-between items-center px-4 sm:px-5 py-3 sm:py-4 text-left font-medium bg-[#f7faff]  transition rounded-lg"
               >
-                {faq.question}
+                <span className=" text-[18px] sm:text-[21px] text-[#212121] font-[500] leading-snug">
+                  {faq.question}
+                </span>
                 {openIndex === index ? (
-                  <MinusIcon className="w-5 h-5 text-purple-600" />
+                  <MinusIcon className="w-5 h-5 sm:w-6  sm:h-6 md:w-7 md:h-7 text-[#212121] flex-shrink-0" />
                 ) : (
-                  <PlusIcon className="w-5 h-5 text-purple-600" />
+                  <PlusIcon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-[#212121] flex-shrink-0" />
                 )}
               </button>
 
-              {/* Smooth dropdown */}
+              {/* Answer */}
               <div
-                className={`transition-all duration-300 ease-in-out ${
+                className={`grid transition-all duration-300 ease-in-out ${
                   openIndex === index
-                    ? "max-h-40 opacity-100 p-6 bg-white"
-                    : "max-h-0 opacity-0"
-                } overflow-hidden text-gray-600`}
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0"
+                }`}
               >
-                {faq.answer}
+                <div className="overflow-hidden">
+                  <p className="px-4 sm:px-5 pt-2 sm:pt-3 pb-4 sm:pb-5 text-[14px] sm:text-[16px] leading-relaxed text-gray-600 font-[400]">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
