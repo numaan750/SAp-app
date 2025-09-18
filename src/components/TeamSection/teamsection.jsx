@@ -1,5 +1,11 @@
 "use client";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { Poppins } from "next/font/google";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const teamMembers = [
   {
@@ -30,19 +36,23 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="w-full py-20 bg-white">
-      <div className="Mycontainer text-center">
+    <section
+      className={`${poppins.className} w-full min-h-screen flex items-center bg-white`}
+    >
+      <div className="Mycontainer text-center w-full">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+        <h2 className="font-semibold text-[32px] md:text-[48px] text-gray-900">
           Our Team Experts
         </h2>
 
         {/* Line under heading */}
-        <div className="w-20 h-1 bg-purple-600 rounded-full mx-auto mt-4"></div>
+        <div className="w-16 h-[3px] bg-purple-600 rounded-full mx-auto mt-3"></div>
 
-        <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-          Meet the talented team of professionals behind us, dedicated to providing
-          innovative solutions and exceptional support to help you succeed.
+        {/* Subtitle */}
+        <p className="font-normal text-[16px] text-gray-600 mt-4 max-w-2xl mx-auto">
+          Meet the talented team of professionals behind us, dedicated to
+          providing innovative solutions and exceptional support to help you
+          succeed.
         </p>
 
         {/* Team Grid */}
@@ -50,46 +60,43 @@ export default function TeamSection() {
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="relative group overflow-hidden rounded-xl shadow-md"
+              className="relative group overflow-hidden rounded-xl shadow-md aspect-square"
             >
               {/* Member Image */}
               <img
                 src={member.img}
                 alt={member.name}
-                className="w-full h-[300px] object-cover"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <h3 className="text-white font-bold text-lg">{member.name}</h3>
-                <p className="text-gray-300 text-sm mb-4">{member.role}</p>
+              <div
+                className="
+                  absolute inset-0 bg-[#6d45d9] flex flex-col items-center justify-center
+                  opacity-0 scale-0
+                  group-hover:opacity-100 group-hover:scale-100
+                  transition-all duration-500 ease-in-out
+                "
+              >
+                <h3 className="font-semibold text-[24px] text-white mb-2">
+                  {member.name}
+                </h3>
+                <p className="font-normal text-[16px] text-gray-200 mb-4">
+                  {member.role}
+                </p>
 
                 {/* Social Icons */}
-                <div className="flex gap-4">
-                  <a
-                    href="#"
-                    className="text-white hover:text-blue-500 transition"
-                  >
-                    <FaFacebookF size={18} />
-                  </a>
-                  <a
-                    href="#"
-                    className="text-white hover:text-blue-400 transition"
-                  >
-                    <FaTwitter size={18} />
-                  </a>
-                  <a
-                    href="#"
-                    className="text-white hover:text-blue-600 transition"
-                  >
-                    <FaLinkedinIn size={18} />
-                  </a>
-                  <a
-                    href="#"
-                    className="text-white hover:text-pink-500 transition"
-                  >
-                    <FaInstagram size={18} />
-                  </a>
+                <div className="flex gap-3">
+                  {[FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram].map(
+                    (Icon, idx) => (
+                      <div
+                        key={idx}
+                        className="w-9 h-9 flex items-center justify-center rounded-md bg-white hover:bg-gray-100 transition"
+                      >
+                        <Icon className="text-[#7d4fe0]" size={18} />
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             </div>
