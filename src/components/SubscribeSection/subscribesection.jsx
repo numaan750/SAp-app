@@ -1,32 +1,44 @@
+"use client";
+import { Poppins } from "next/font/google";
+import Image from "next/image";
+import map from "@/Assets/map.png";
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
 export function SubscribeSection() {
   return (
-    <section className="relative w-full bg-white py-20">
+    <section
+      className={`${poppins.className} relative w-full min-h-[80vh] bg-white overflow-hidden flex items-center justify-center`}
+    >
       {/* Background world map */}
-      <div
-        className="absolute inset-0 flex items-center justify-center opacity-10"
-        style={{
-          backgroundImage: "url('/images/world-map.png')", // apna path lagao
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "contain",
-        }}
-      ></div>
+      <div className="absolute inset-0 flex items-center justify-center opacity-10">
+        <Image
+          src={map}
+          alt="world map background"
+          fill
+          className="object-contain"
+          priority
+        />
+      </div>
 
       {/* Content */}
-      <div className="relative z-10 Mycontainer text-center">
+      <div className="relative z-10 Mycontainer text-center flex flex-col justify-center items-center px-4">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="font-semibold text-[32px] md:text-[48px] text-gray-900 leading-snug">
           Subscribe to get updates
         </h2>
 
         {/* Paragraph */}
-        <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+        <p className="font-normal text-[16px] text-gray-600 mt-6 max-w-2xl mx-auto">
           Stay in the loop! Subscribe now to receive the latest news, updates,
           and exclusive offers from sApp directly to your inbox.
         </p>
 
         {/* Input + Button */}
-        <form className="mt-8 max-w-lg mx-auto space-y-4">
+        <form className="mt-8 max-w-lg mx-auto space-y-4 w-full">
           <input
             type="email"
             placeholder="Email address"
@@ -34,7 +46,7 @@ export function SubscribeSection() {
           />
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-purple-600 to-purple-800 text-white py-3 rounded-md font-medium hover:opacity-90 transition"
+            className="w-full bg-gradient-to-r from-[#4c2cdb] to-[#7d4fe0] text-white py-3 rounded-md font-medium hover:opacity-90 transition"
           >
             Subscribe →
           </button>
