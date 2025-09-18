@@ -1,5 +1,7 @@
 "use client";
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { useState } from "react";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6"; // X (Twitter) icon
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
@@ -35,9 +37,11 @@ const teamMembers = [
 ];
 
 export default function TeamSection() {
+  const [active, setActive] = useState(null); // mobile ke liye
+
   return (
     <section
-      className={`${poppins.className} w-full min-h-screen flex items-center bg-white`}
+      className={`${poppins.className} w-full min-h-screen flex items-center bg-white mb-20`}
     >
       <div className="Mycontainer text-center w-full">
         {/* Heading */}
@@ -60,7 +64,8 @@ export default function TeamSection() {
           {teamMembers.map((member) => (
             <div
               key={member.id}
-              className="relative group overflow-hidden rounded-xl shadow-md aspect-square"
+              className="relative group overflow-hidden rounded-xl shadow-md aspect-square cursor-pointer"
+              onClick={() => setActive(active === member.id ? null : member.id)} // mobile click toggle
             >
               {/* Member Image */}
               <img
@@ -71,12 +76,11 @@ export default function TeamSection() {
 
               {/* Overlay */}
               <div
-                className="
+                className={`
                   absolute inset-0 bg-[#6d45d9] flex flex-col items-center justify-center
-                  opacity-0 scale-0
-                  group-hover:opacity-100 group-hover:scale-100
                   transition-all duration-500 ease-in-out
-                "
+                  ${active === member.id ? "opacity-100 scale-100" : "opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-100"}
+                `}
               >
                 <h3 className="font-semibold text-[24px] text-white mb-2">
                   {member.name}
@@ -87,16 +91,14 @@ export default function TeamSection() {
 
                 {/* Social Icons */}
                 <div className="flex gap-3">
-                  {[FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram].map(
-                    (Icon, idx) => (
-                      <div
-                        key={idx}
-                        className="w-9 h-9 flex items-center justify-center rounded-md bg-white hover:bg-gray-100 transition"
-                      >
-                        <Icon className="text-[#7d4fe0]" size={18} />
-                      </div>
-                    )
-                  )}
+                  {[FaLinkedinIn, FaGithub, FaXTwitter].map((Icon, idx) => (
+                    <div
+                      key={idx}
+                      className="w-9 h-9 flex items-center justify-center rounded-md bg-white hover:bg-gray-100 transition"
+                    >
+                      <Icon className="text-[#7d4fe0]" size={18} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
