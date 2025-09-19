@@ -1,18 +1,16 @@
-// app/page.jsx
+"use client";
 
 import Image from "next/image";
 import Background from "@/Assets/welcome-bg.jpg";
 import playstor from "@/Assets/app-store.png";
 import google from "@/Assets/google-play.png";
 import hero from "@/Assets/hero-thumb.png";
-import { Poppins,  } from "next/font/google";
-
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-
 
 export default function Home() {
   return (
@@ -26,32 +24,32 @@ export default function Home() {
         className="object-cover object-center"
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5337de]/90 to-[#7b53e0]/92"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5337de]/95 to-[#7b53e0]/90"></div>
+
       {/* Hero Section */}
-      <section className="relative w-full">
-        <div className="Mycontainer relative z-10 container mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center pt-24 md:pt-32">
+      <section className="Mycontainer relative w-full">
+        <div className="relative z-10 container mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center pt-24 md:pt-32">
           
-          {/* Left Text */}
-          <div className="space-y-6 text-left">
-            {/* Heading */}
+          {/* ✅ Left Text */}
+          <div className="order-1 space-y-6 text-left md:w-full">
             <h1
               className={`
-                text-5xl sm:text-6xl md:text-6xl lg:text-7xl
-                font-semibold  ${poppins.className}
-                leading-tight sm:leading-snug md:leading-snug lg:leading-[1.15]
+                font-semibold ${poppins.className}
+                text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl
+                leading-tight md:leading-snug lg:leading-[1.15]
                 text-white
-                max-w-xl md:max-w-2xl
+                max-w-xl md:max-w-full
               `}
             >
               Make cool <br /> Landing pages <br /> with sApp
             </h1>
 
-            {/* Paragraph */}
             <p
               className={`
-                text-lg sm:text-xl md:text-2xl lg:text-lg
-                leading-relaxed sm:leading-relaxed md:leading-7 lg:leading-8
-                text-white ${poppins.className}
+                ${poppins.className}
+                text-xl font-[300] sm:text-base md:text-lg lg:text-xl
+                leading-relaxed md:leading-7 lg:leading-8
+                text-white
                 max-w-md md:max-w-lg
               `}
             >
@@ -69,7 +67,7 @@ export default function Home() {
                     alt="Google Play"
                     width={200}
                     height={900}
-                    className="object-contain w-40 md:w-44 lg:w-48 h-auto"
+                    className="object-contain w-43 sm:w-40 md:w-44 lg:w-47 h-auto"
                   />
                 </a>
                 <a href="#">
@@ -78,32 +76,34 @@ export default function Home() {
                     alt="App Store"
                     width={180}
                     height={70}
-                    className="object-contain w-40 md:w-44 lg:w-48 h-auto"
+                    className="object-contain w-43 sm:w-40 md:w-44 lg:w-47 h-auto"
                   />
                 </a>
               </div>
 
-              {/* Extra Line exactly under badges */}
-              <p className={`${poppins.className} text-1xl sm:text-sm italic md:text-base text-white`}>
+              <p
+                className={`${poppins.className} text-xs sm:text-xl md:text-base italic text-white`}
+              >
                 * Available on iPhone, iPad and all Android devices
               </p>
             </div>
           </div>
 
-          {/* Right Image (Phone Mockup) */}
-          <div className="flex justify-center md:justify-end  md:mt-0">
+          {/* ✅ Right Image (Phone Mockup) */}
+          <div className="order-2 flex justify-center md:justify-end">
             <Image
               src={hero}
               alt="App Screenshot"
-              width={300}
-              height={500}
-              className="drop-shadow-2xl object-contain max-w-full h-auto translate-x-[-10px] md:translate-x-[-130px]"
+              width={320}
+              height={520}
+              className="drop-shadow-2xl object-contain max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[380px] h-auto
+              md:translate-x-[-60px] lg:translate-x-[-100px]"
             />
           </div>
         </div>
       </section>
 
-      {/* Bottom Wave */}
+      {/* ✅ Bottom Wave */}
       <div className="relative">
         <div className="relative h-16 sm:h-28 md:h-36 lg:h-48">
           <svg
