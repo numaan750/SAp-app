@@ -29,7 +29,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-gradient-to-br from-[#5337de]/90 to-[#7b53e0]/92"></div>
       {/* Hero Section */}
       <section className="relative w-full">
-        <div className="Mycontainer relative z-10 container mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center pt-24 md:pt-32 pb-10 md:pb-16">
+        <div className="Mycontainer relative z-10 container mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-6 items-center pt-24 md:pt-32">
           
           {/* Left Text */}
           <div className="space-y-6 text-left">
