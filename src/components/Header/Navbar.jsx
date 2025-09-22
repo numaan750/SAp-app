@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { FaChevronDown, FaSearch, FaBars, FaTimes } from "react-icons/fa";
-import Image from "next/image";
-import Logo from "@/Assets/logo.png";
+
 import { Poppins } from "next/font/google";
+import { AppContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,7 +18,7 @@ const Navbar = () => {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrolled, setScrolled] = useState(false);
-
+  const {navbar} = useContext(AppContext)
   // ✅ Track window size for 1200px breakpoint
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -62,6 +62,8 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, [lastScrollY]);
 
+
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -71,13 +73,15 @@ const Navbar = () => {
       <div className="max-w-7xl Mycontainer mx-auto py-5 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="flex items-center">
-          <Image
-            src={Logo}
+          <img
+            src={navbar[0]?.logo}
             alt="Logo"
             width={55}
             height={55}
-            priority
-            className={`object-contain ${scrolled ? "" : "invert brightness-0"}`}
+            
+            className={`object-contain ${
+              scrolled ? "" : "invert brightness-0"
+            }`}
           />
         </div>
 
@@ -90,7 +94,9 @@ const Navbar = () => {
           {/* ✅ Desktop Nav (only show >=1200px) */}
           {isDesktop && (
             <ul
-              className={` ${poppins.className} flex space-x-7 font-semibold items-center transition-colors duration-300 mr-35 ${
+              className={` ${
+                poppins.className
+              } flex space-x-7 font-semibold items-center transition-colors duration-300 mr-35 ${
                 scrolled ? "text-black" : "text-white"
               } text-md`}
             >

@@ -2,7 +2,6 @@
 
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Image from "next/image";
-import Logo from "@/Assets/logo.png";
 import Google from "@/Assets/google-img.png";
 import App from "@/Assets/app-store-img.png";
 import { Poppins } from "next/font/google";
@@ -30,7 +29,7 @@ const Footer = () => {
         {/* Logo + Description */}
         <div>
           <div className="flex items-center mb-4">
-            <Image src={Logo} alt="Logo.png" width={55} height={55} />
+            <Image src={'/logo.png'} alt="Logo.png" width={55} height={55} />
           </div>
           <p className="text-[16px] font-normal text-[#575757] mb-14 leading-relaxed">
             The Next-Level Solutions for Landing Pages. Perfect Touch Enhances
