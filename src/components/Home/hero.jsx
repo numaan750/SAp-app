@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import Background from "@/Assets/welcome-bg.jpg";
-import playstor from "@/Assets/app-store.png";
-import google from "@/Assets/google-play.png";
-import hero from "@/Assets/hero-thumb.png";
 import { Poppins } from "next/font/google";
+import { AppContext } from "@/context/appcontext";
+import { useContext, useEffect, useState } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,9 +12,32 @@ const poppins = Poppins({
 });
 
 export default function Home() {
+  const { hero } = useContext(AppContext);
+
+  // Normalize hero (API might return an array or object)
+  const currentHero = Array.isArray(hero) ? hero[0] : hero;
+
+  // local state for filtered images (no empty strings / falsy)
+  const [myImages, setMyImages] = useState([]);
+
+  useEffect(() => {
+    if (!currentHero) {
+      setMyImages([]);
+      return;
+    }
+
+    const imgs = Array.isArray(currentHero.images) ? currentHero.images : [];
+    // remove null/undefined/empty-string entries
+    setMyImages(imgs.filter((i) => typeof i === "string" && i.trim() !== ""));
+  }, [currentHero]);
+
+  console.log("Hero data from context:", hero);
+
+  if (!currentHero) return <div>No data found</div>;
+
   return (
     <div id="hero" className="relative">
-      {/* Background Image */}
+      {/* Background (local import uses next/image safely) */}
       <Image
         src={Background}
         alt="background"
@@ -23,14 +45,14 @@ export default function Home() {
         priority
         className="object-cover object-center"
       />
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#5337de]/95 to-[#7b53e0]/90"></div>
 
       {/* Hero Section */}
       <section className="Mycontainer relative w-full">
         <div className="relative z-10 container mx-auto h-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center pt-24 md:pt-32">
-          
-          {/* ✅ Left Text */}
+          {/* Left Text */}
           <div className="order-1 space-y-6 text-left md:w-full">
             <h1
               className={`
@@ -41,7 +63,7 @@ export default function Home() {
                 max-w-xl md:max-w-full
               `}
             >
-              Make cool <br /> Landing pages <br /> with sApp
+              {currentHero?.heading}
             </h1>
 
             <p
@@ -53,64 +75,93 @@ export default function Home() {
                 max-w-md md:max-w-lg
               `}
             >
-              Create stunning and highly functional landing pages effortlessly
-              with sApp, designed to help you capture attention and drive
-              conversions.
+              {currentHero?.paragraph}
             </p>
 
-            {/* Store Badges + Extra Line */}
+            {/* Store Badges + Copyright */}
             <div className="flex flex-col gap-2">
               <div className="flex flex-col sm:flex-row gap-3 justify-start items-start">
-                <a href="#">
-                  <Image
-                    src={google}
-                    alt="Google Play"
-                    width={200}
-                    height={900}
-                    className="object-contain w-43 sm:w-40 md:w-44 lg:w-47 h-auto"
-                  />
-                </a>
-                <a href="#">
-                  <Image
-                    src={playstor}
-                    alt="App Store"
-                    width={180}
-                    height={70}
-                    className="object-contain w-43 sm:w-40 md:w-44 lg:w-47 h-auto"
-                  />
-                </a>
+                {myImages.length > 0 ? (
+                  myImages.map((src, idx) => (
+                    // using normal <img> for badges avoids next/image domain config issues in dev
+                    <a href="#" key={idx} className="inline-block">
+                      <img
+                        src={src}
+                        alt={`badge-${idx}`}
+                        width={200}
+                        height={70}
+                        className="object-contain w-43 sm:w-40 md:w-44 lg:w-47 h-auto"
+                        onError={(e) => {
+                          // fallback to local placeholder if remote fails or is blocked
+                          e.currentTarget.src = "/placeholder.png";
+                        }}
+                      />
+                    </a>
+                  ))
+                ) : (
+                  // fallback placeholders when no images provided
+                  <>
+                    <a href="#">
+                      <img
+                        src="/placeholder.png"
+                        alt="placeholder-1"
+                        width={200}
+                        height={70}
+                        className="object-contain"
+                      />
+                    </a>
+                    <a href="#">
+                      <img
+                        src="/placeholder.png"
+                        alt="placeholder-2"
+                        width={180}
+                        height={70}
+                        className="object-contain"
+                      />
+                    </a>
+                  </>
+                )}
               </div>
 
-              <p
-                className={`${poppins.className} text-xs sm:text-xl md:text-base italic text-white`}
-              >
-                * Available on iPhone, iPad and all Android devices
+              <p className={`${poppins.className} text-xs sm:text-xl md:text-base italic text-white`}>
+                {currentHero?.copyright}
               </p>
             </div>
           </div>
 
-          {/* ✅ Right Image (Phone Mockup) */}
+          {/* Right Image (Phone Mockup) */}
           <div className="order-2 flex justify-center md:justify-end">
-            <Image
-              src={hero}
-              alt="App Screenshot"
-              width={320}
-              height={520}
-              className="drop-shadow-2xl object-contain max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[380px] h-auto
-              md:translate-x-[-60px] lg:translate-x-[-100px]"
-            />
+            {/* Use <img> for mainImage too to avoid next/image hostname config during development.
+                If your mainImage is served from your own domain or you add domain to next.config.js,
+                you can replace this with <Image src={...} ... /> */}
+            {currentHero?.mainImage ? (
+              <img
+                src={currentHero.mainImage}
+                alt="App Screenshot"
+                width={320}
+                height={520}
+                className="drop-shadow-2xl object-contain max-w-[260px] sm:max-w-[300px] md:max-w-[340px] lg:max-w-[380px] h-auto md:translate-x-[-60px] lg:translate-x-[-100px]"
+                onError={(e) => {
+                  e.currentTarget.src = "/placeholder.png";
+                }}
+              />
+            ) : (
+              <img
+                src="/placeholder.png"
+                alt="placeholder-screenshot"
+                width={320}
+                height={520}
+                className="drop-shadow-2xl object-contain"
+              />
+            )}
           </div>
         </div>
       </section>
 
-      {/* ✅ Bottom Wave */}
+      {/* Bottom Wave (unchanged) */}
       <div className="relative">
         <div className="relative h-16 sm:h-28 md:h-36 lg:h-48">
-          <svg
-            viewBox="0 0 1920 863"
-            className="absolute bottom-0 left-0 w-full h-full"
-            preserveAspectRatio="none"
-          >
+          <svg viewBox="0 0 1920 863" className="absolute bottom-0 left-0 w-full h-full" preserveAspectRatio="none">
             <path
               d="M-3,551 C186.257589,757.321118 319.044414,856.322454 
                  395.360475,848.004007 C509.834566,835.526337 

@@ -7,6 +7,7 @@ export const AppContext = createContext();
 const AppContextProvider = (props) => {
   // ⬇️ navbar ko string ke bajaye array/object me rakho
   const [navbar, setNavBar] = useState([]);
+  const [hero, sethero] = useState([]);
 
   const getNavbar = async () => {
     try {
@@ -21,15 +22,38 @@ const AppContextProvider = (props) => {
     }
   };
 
+  const gethero = async () => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/hero`);
+      if (!response.ok) throw new Error("Failed to fetch hero");
+      const data = await response.json();
+      console.log(data,'hero')
+
+      // ⬇️ Backend se array aata hai, isliye usko set karo
+      sethero(data[0]);
+    } catch (error) {
+      console.log("Error fetching hero:", error);
+    }
+  };
+
   useEffect(() => {
     getNavbar();
   }, []);
 
+  useEffect(() => {
+    gethero();
+  }, []);
+
+
   const value = {
     navbar,
-    getNavbar, // ⬅️ ye add kar diya taake reload kar sako
+    hero,
+    getNavbar,
+    gethero // ⬅️ ye add kar diya taake reload kar sako
   };
 
+  
+  
   return (
     <AppContext.Provider value={value}>
       {props.children}
