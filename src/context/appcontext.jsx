@@ -18,7 +18,7 @@ const AppContextProvider = (props) => {
   const [team, setteam] = useState([]);
   const [available, setavailable] = useState([]);
   const [contectus, setContectus] = useState([]);
-  const [footer, setfooter] = useState([]);
+  const [footer, setfooter] = useState([])
 
   //navbar k liya ya hy
   const getNavbar = async () => {
