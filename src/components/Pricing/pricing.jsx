@@ -4,6 +4,8 @@ import { GiScooter } from "react-icons/gi";
 import { GiDutchBike } from "react-icons/gi";
 
 import { Poppins } from "next/font/google";
+import { useContext } from "react";
+import { AppContext } from "@/context/Appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -11,6 +13,10 @@ const poppins = Poppins({
 });
 
 export default function Pricing() {
+
+   const {pricing} = useContext(AppContext);
+   if (!pricing)  return <p className="text-center py-10">Loading reviews...</p>;
+
   return (
     <section
       id="pricing"
@@ -19,7 +25,7 @@ export default function Pricing() {
       <div className="Mycontainer text-center">
         {/* Heading */}
         <h2 className="text-[32px] md:text-[48px] font-semibold text-gray-900">
-          Unlock Full Power Of sApp
+          {pricing.heading}
         </h2>
 
         {/* Purple Line */}
@@ -27,9 +33,7 @@ export default function Pricing() {
 
         {/* Subtitle */}
         <p className="text-[16px] font-normal text-[#665a57] mt-4 max-w-2xl mx-auto leading-relaxed">
-          Maximize your potential by unlocking advanced features and tools that
-          give you complete control over your landing page designs and
-          performance.
+          {pricing.paragraph}
         </p>
 
         {/* Pricing Cards */}
@@ -38,20 +42,20 @@ export default function Pricing() {
           <div className="bg-white shadow-sm hover:shadow-md rounded-xl p-10 border border-gray-200/40 flex flex-col items-center min-h-[550px] relative transition">
             <GiDutchBike className="w-25 h-25 text-[#9470e6] mb-6" />
             <h3 className="text-[19px] font-semibold text-[#212121] mb-2">
-              BASIC
+              {pricing.maintext1}
             </h3>
-            <p className="text-[48px] font-bold text-[#6840de] mb-6">$49</p>
+            <p className="text-[48px] font-bold text-[#6840de] mb-6">{pricing.price1}</p>
             <ul className="text-[#212529] w-full space-y-6 mb-10 text-[16px] font-normal">
               <li className="pb-3 border-b border-gray-200">
-                5GB Linux Web Space
+                {pricing.card1smalltext1}
               </li>
               <li className="pb-3 border-b border-gray-200">
-                5 MySQL Databases
+                {pricing.card1smalltext2}
               </li>
               <li className="pb-3 border-b border-gray-200">
-                24/7 Tech Support
+                {pricing.card1smalltext3}
               </li>
-              <li className="pb-0">Daily Backups</li>
+              <li className="pb-0">{pricing.card1smalltext4}</li>
             </ul>
 
             {/* Button */}
@@ -63,7 +67,7 @@ export default function Pricing() {
                 relative md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-[-24px]
               "
             >
-              Sign Up
+              {pricing.buttontext1}
             </button>
           </div>
 
@@ -71,18 +75,18 @@ export default function Pricing() {
           <div className="bg-white shadow-sm hover:shadow-md rounded-xl p-10 border border-gray-200/40 flex flex-col items-center min-h-[550px] relative transition">
             <GiScooter className="w-25 h-25 text-[#7d4fe0] mb-6" />
             <h3 className="text-[19px] font-semibold text-[#212121] mb-2">
-              PRO
+              {pricing.maintext2}
             </h3>
-            <p className="text-[48px] font-bold text-[#6840de] mb-6">$129</p>
+            <p className="text-[48px] font-bold text-[#6840de] mb-6">{pricing.price2}</p>
             <ul className="text-[#212529] w-full space-y-6 mb-10 text-[16px] font-normal">
               <li className="pb-3 border-b border-gray-200">
-                10GB Linux Web Space
+               {pricing.card2smalltext1}
               </li>
               <li className="pb-3 border-b border-gray-200">
-                50 MySQL Databases
+                {pricing.card2smalltext2}
               </li>
-              <li className="pb-3 border-b border-gray-200">Unlimited Email</li>
-              <li className="pb-0">Daily Backups</li>
+              <li className="pb-3 border-b border-gray-200">{pricing.card2smalltext3}</li>
+              <li className="pb-0">{pricing.card2smalltext4}</li>
             </ul>
 
             {/* Button */}
@@ -94,14 +98,14 @@ export default function Pricing() {
                 relative md:absolute md:left-1/2 md:-translate-x-1/2 md:bottom-[-24px]
               "
             >
-              Sign Up
+             {pricing.buttontext2}
             </button>
           </div>
         </div>
 
         {/* Footer Text */}
         <p className="text-[16px] font-medium text-[#575757] mt-16">
-          Not sure what to choose?{" "}
+          {pricing.copyrighttext}{" "}
           <a href="#" className="text-[#7d4fe0] hover:underline">
             Contact Us
           </a>

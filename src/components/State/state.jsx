@@ -1,5 +1,8 @@
-import React from 'react';
+"use client"
+
+import React, { useContext } from 'react';
 import { Poppins } from 'next/font/google';
+import { AppContext } from "@/context/Appcontext";
 
 
 const poppins = Poppins({
@@ -7,14 +10,22 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
-const stats = [
-  { id: 1, value: '10M', label: 'Users' },
-  { id: 2, value: '23K', label: 'Download' },
-  { id: 3, value: '9M', label: 'Customer' },
-  { id: 4, value: '12K', label: 'Developer' },
-];
+
+
+
 
 const State = () => {
+  
+  const states = useContext(AppContext);
+  console.log(states.states,"states")
+  const myStates = states.states || {};
+  const stats = [
+    { id: 1, value: myStates.usersCount, label: myStates.usersTitle},
+    { id: 2, value: myStates.downloadsCount, label: myStates.downloadsTitle},
+    { id: 3, value: myStates.customersCount, label: myStates.customersTitle},
+    { id: 4, value: myStates.developersCount, label: myStates.developersTitle },
+  ];
+
   return (
     <section className="Mycontainer w-full bg-white py-12">
       <div className={`${poppins.className} max-w-9xl mx-auto grid grid-cols-2 md:grid-cols-4 text-center lg:gap-16 md:gap-7 gap-5 px-5`}>

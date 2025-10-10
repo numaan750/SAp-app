@@ -3,7 +3,7 @@
 import { useState, useEffect, useContext } from "react";
 import { FaChevronDown, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/appcontext";
+import { AppContext } from "@/context/Appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -55,7 +55,7 @@ const Navbar = () => {
     setSubDropdownOpen((prev) => (prev === name ? null : name));
   };
 
-  const navData = navbar[0]; // ✅ API se ek hi navbar aata hai
+  const navData = navbar[0]; 
 
   return (
     <nav
@@ -64,7 +64,7 @@ const Navbar = () => {
       } ${scrolled ? "bg-white/90 shadow-md backdrop-blur" : "bg-transparent"}`}
     >
       <div className="max-w-7xl Mycontainer mx-auto py-5 flex items-center justify-between">
-        {/* Left: Logo */}
+        
         <div className="flex items-center">
           <img
             src={navData?.logo}
@@ -77,13 +77,13 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Right side (Nav + Search + Mobile toggle) */}
+        
         <div
           className={`flex items-center ml-auto transition-colors duration-300 ${
             scrolled ? "text-black" : "text-white"
           }`}
         >
-          {/* ✅ Desktop Nav */}
+          
           {isDesktop && (
             <ul
               className={`${poppins.className} flex space-x-7 font-semibold items-center transition-colors duration-300 mr-35 ${
@@ -97,7 +97,7 @@ const Navbar = () => {
                     {link.hasDropdown && <FaChevronDown size={15} />}
                   </div>
 
-                  {/* Dropdown */}
+                  
                   {link.hasDropdown && link.dropdownItems?.length > 0 && (
                     <ul className="absolute left-0 mt-2 z-40 hidden group-hover:block bg-white text-black rounded shadow-md w-56 animate-fadeIn">
                       {link.dropdownItems.map((drop, j) => (
@@ -107,7 +107,7 @@ const Navbar = () => {
                             {drop.hasSubDropdown && <FaChevronDown size={12} />}
                           </div>
 
-                          {/* SubDropdown */}
+                          
                           {drop.hasSubDropdown && drop.subItems?.length > 0 && (
                             <ul className="absolute top-0 left-full hidden group-hover/item:block bg-white text-black rounded shadow-md w-48 animate-slideIn">
                               {drop.subItems.map((sub, k) => (
@@ -129,7 +129,7 @@ const Navbar = () => {
             </ul>
           )}
 
-          {/* Search */}
+          
           <button
             aria-label="Search"
             className="hover:text-[#8d75ee] transition-colors"
@@ -137,7 +137,7 @@ const Navbar = () => {
             <FaSearch size={15} />
           </button>
 
-          {/* Mobile toggle */}
+          
           {!isDesktop && (
             <button
               aria-label="Open menu"
@@ -150,15 +150,15 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* ✅ Mobile Menu */}
+      
       {!isDesktop && menuOpen && (
         <div className="fixed inset-0 z-50 flex">
-          {/* Overlay */}
+          
           <div
             className="absolute inset-0 bg-black/50"
             onClick={() => setMenuOpen(false)}
           />
-          {/* Drawer */}
+          
           <aside className="relative ml-auto h-full w-full bg-white text-black shadow-lg transform transition-transform duration-300 animate-slideIn">
             <div className="flex items-center justify-between px-6 py-5 border-b border-gray-200">
               <h2 className="text-2xl font-bold">Menu</h2>
@@ -170,7 +170,7 @@ const Navbar = () => {
               </button>
             </div>
 
-            {/* Dynamic Menu Items */}
+            
             <div className="overflow-y-auto bg-white h-[calc(100vh-72px)] px-6 pb-8 space-y-2 font-semibold text-xl">
               {navData?.navlinks?.map((link, i) => (
                 <div key={i}>
@@ -192,7 +192,7 @@ const Navbar = () => {
                     )}
                   </button>
 
-                  {/* Mobile Dropdown */}
+                  
                   {link.hasDropdown && link.dropdownItems?.length > 0 && (
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
@@ -221,7 +221,7 @@ const Navbar = () => {
                               )}
                             </button>
 
-                            {/* SubDropdown in Mobile */}
+                            
                             {drop.hasSubDropdown && drop.subItems?.length > 0 && (
                               <div
                                 className={`overflow-hidden transition-all duration-300 ${

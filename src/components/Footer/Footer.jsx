@@ -5,6 +5,8 @@ import Image from "next/image";
 import Google from "@/Assets/google-img.png";
 import App from "@/Assets/app-store-img.png";
 import { Poppins } from "next/font/google";
+import { useContext } from "react";
+import { AppContext } from "@/context/Appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,6 +14,10 @@ const poppins = Poppins({
 });
 
 const Footer = () => {
+  const { footer } = useContext(AppContext);
+
+  if (!footer) return <p className="text-center py-10">Loading footer...</p>;
+
   return (
     <footer
       className={`${poppins.className} bg-white text-gray-800 border-t border-gray-200`}
@@ -29,72 +35,151 @@ const Footer = () => {
         {/* Logo + Description */}
         <div>
           <div className="flex items-center mb-4">
-            <Image src={'/logo.png'} alt="Logo.png" width={55} height={55} />
+            <img src={footer.Logo} alt="Logo.png" width={55} height={55} />
           </div>
           <p className="text-[16px] font-normal text-[#575757] mb-14 leading-relaxed">
-            The Next-Level Solutions for Landing Pages. Perfect Touch Enhances
-            your Business.
+            {footer.paragraph}
           </p>
+
           <div className="flex space-x-3">
-            {[FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="w-10 h-10 flex items-center justify-center 
+            <a
+              href="#"
+              className="w-10 h-10 flex items-center justify-center 
              rounded 
              bg-gradient-to-br from-[#5337de] to-[#7b53e0]"
-              >
-                <Icon className="text-[16px] font-normal text-white transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-90" />
-              </a>
-            ))}
+            >
+              <FaFacebookF className="text-[16px] font-normal text-white transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-90" />
+            </a>
+            <a
+              href="#"
+              className="w-10 h-10 flex items-center justify-center 
+             rounded 
+             bg-gradient-to-br from-[#5337de] to-[#7b53e0]"
+            >
+              <FaTwitter className="text-[16px] font-normal text-white transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-90" />
+            </a>
+            <a
+              href="#"
+              className="w-10 h-10 flex items-center justify-center 
+             rounded 
+             bg-gradient-to-br from-[#5337de] to-[#7b53e0]"
+            >
+              <FaLinkedinIn className="text-[16px] font-normal text-white transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-90" />
+            </a>
+            <a
+              href="#"
+              className="w-10 h-10 flex items-center justify-center 
+             rounded 
+             bg-gradient-to-br from-[#5337de] to-[#7b53e0]"
+            >
+              <FaGithub className="text-[16px] font-normal text-white transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-90" />
+            </a>
           </div>
         </div>
 
         {/* Useful Links */}
         <div>
-          <h3 className="font-semibold text-[24px] mb-5">Useful Links</h3>
+          <h3 className="font-semibold text-[24px] mb-5">
+            {footer.footerheading1}
+          </h3>
           <ul className="space-y-3">
-            {["Home", "About Us", "Services", "Blog", "Contact"].map(
-              (item, i) => (
-                <li key={i}>
-                  <a
-                    href="#"
-                    className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
-                  >
-                    {item}
-                  </a>
-                </li>
-              )
-            )}
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footertext1}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footertext2}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footertext3}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footertext4}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footertext5}
+              </a>
+            </li>
           </ul>
         </div>
 
         {/* Product Help */}
         <div>
-          <h3 className="font-semibold text-[24px] mb-5">Product Help</h3>
+          <h3 className="font-semibold text-[24px] mb-5">
+            {footer.footerheading2}
+          </h3>
           <ul className="space-y-3">
-            {[
-              "FAQ",
-              "Privacy Policy",
-              "Support",
-              "Terms & Conditions",
-              "Contact",
-            ].map((item, i) => (
-              <li key={i}>
-                <a
-                  href="#"
-                  className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footerdiscription1}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footerdiscription2}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footerdiscription3}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footerdiscription4}
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="text-[16px] font-medium hover:text-[#7e51e0] hover:font-semibold transition"
+              >
+                {footer.footerdiscription5}
+              </a>
+            </li>
           </ul>
         </div>
 
         {/* Download */}
         <div>
-          <h3 className="font-semibold text-[24px] mb-5">Download</h3>
+          <h3 className="font-semibold text-[24px] mb-5">
+            {footer.footerheading3}
+          </h3>
           <div
             className="
               grid grid-cols-1 
@@ -106,8 +191,8 @@ const Footer = () => {
               href="#"
               className="transform transition hover:scale-105 text-[16px] font-normal"
             >
-              <Image
-                src={Google}
+              <img
+                src={footer.img1}
                 alt="google-img.png"
                 className="rounded-lg w-40 sm:w-48 md:w-56 h-auto"
               />
@@ -116,8 +201,8 @@ const Footer = () => {
               href="#"
               className="transform transition hover:scale-105 text-[16px] font-normal"
             >
-              <Image
-                src={App}
+              <img
+                src={footer.img2}
                 alt="app-store-img.png"
                 className="rounded-lg w-40 sm:w-48 md:w-56 h-auto"
               />
@@ -138,7 +223,7 @@ const Footer = () => {
         "
       >
         <span className="text-[16px] font-normal mb-2 md:mb-0">
-          © 2020–2025 sApp | All rights reserved.
+          {footer.copywritetext}
         </span>
         <span className="text-[16px] font-normal">
           Made with <span className="text-black">♥</span> By{" "}

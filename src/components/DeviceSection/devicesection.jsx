@@ -1,11 +1,13 @@
+"use client"
+
 import Image from "next/image";
 import { Calendar, Settings, Activity, Clock } from "lucide-react"; // lucide-react icons
 import thumb from "@/Assets/thumb-1.png";
 import { Poppins } from "next/font/google";
 import { TbBoxMultiple } from "react-icons/tb";
 import { RiRouteLine } from "react-icons/ri";
-
-
+import { useContext } from "react";
+import { AppContext } from "@/context/Appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,22 +15,24 @@ const poppins = Poppins({
 });
 
 export default function AvailableSection() {
+
+  const {device} = useContext(AppContext);
+
+  if (!device) return <p className="text-center py-10">Loading features...</p>;
   return (
     <section className="w-full bg-[#f7faff] py-20">
       <div className="Mycontainer mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Left Content */}
         <div className="space-y-10">
-          {/* Heading */}
           <h2
             className={`${poppins.className} 
               text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
               font-semibold text-gray-900 
               leading-snug md:leading-tight text-left w-full`}
           >
-            Make your
-            <span className="block md:inline"> Device Manage</span>
-            <span className="block md:inline"> Everything For</span>
-            <span className="block md:inline"> you</span>
+            {device.heading}
+            <span className="block md:inline"> </span>
+            <span className="block md:inline"> </span>
+            <span className="block md:inline"> </span>
           </h2>
 
           {/* Features */}
@@ -39,8 +43,7 @@ export default function AvailableSection() {
                 <TbBoxMultiple size={30} />
               </div>
               <p className={`${poppins.className} leading-relaxed`}>
-                Automate routine tasks to boost your efficiency and productivity
-                while saving valuable time for other activities.
+                {device.description1}
               </p>
             </div>
 
@@ -50,8 +53,7 @@ export default function AvailableSection() {
                 <Settings size={30} />
               </div>
               <p className={`${poppins.className} leading-relaxed`}>
-                Seamlessly synchronize data across all your devices, ensuring
-                effortless access to information.
+                {device.description2}
               </p>
             </div>
 
@@ -61,8 +63,7 @@ export default function AvailableSection() {
                 <RiRouteLine size={30} />
               </div>
               <p className={`${poppins.className} leading-relaxed`}>
-                Control and monitor your smart home devices from a single,
-                intuitive interface, simplifying your daily interactions.
+                {device.description3}
               </p>
             </div>
 
@@ -72,8 +73,7 @@ export default function AvailableSection() {
                 <Clock size={30} />
               </div>
               <p className={`${poppins.className} leading-relaxed`}>
-                Receive personalized notifications and reminders tailored to
-                your schedule, keeping you organized and on track.
+                {device.description4}
               </p>
             </div>
           </div>
@@ -87,20 +87,22 @@ export default function AvailableSection() {
     bg-white transition-all duration-300 
     hover:text-white hover:bg-gradient-to-r hover:from-[#7a4fe0] hover:to-[#5131de]`}
             >
-              Learn More →
+             {device.buttontext}
             </a>
           </div>
         </div>
 
         {/* Right Image */}
         <div className="flex justify-center md:justify-end">
+          {device.mainimg ? (
           <Image
-            src={thumb}
+            src={device.mainimg}
             alt="App Screenshot"
             width={320}
             height={520}
             className="drop-shadow-2xl object-contain"
           />
+          ) : null}
         </div>
       </div>
     </section>

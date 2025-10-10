@@ -1,6 +1,8 @@
 "use client";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { Poppins } from "next/font/google";
+import { useContext } from "react";
+import { AppContext } from "@/context/Appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -8,6 +10,11 @@ const poppins = Poppins({
 });
 
 export default function ContactSection() {
+  
+  const {contectus} = useContext(AppContext);
+
+  if (!contectus)  return <p className="text-center py-10">Loading contectus...</p>;
+
   return (
     <section
       id="contact"
@@ -17,12 +24,11 @@ export default function ContactSection() {
         {/* Top Heading Center (always center) */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="font-semibold text-[32px] md:text-[48px] text-gray-900 leading-snug">
-            Stay Tuned
+            {contectus.mainheading}
           </h2>
           <div className="w-15 h-1 bg-[#6840de] rounded-full mt-2 mb-3 mx-auto"></div>
           <p className="font-normal text-[16px] md:text-[18px] text-gray-600">
-            Keep an eye out for exciting news and updates from the app, as we
-            continue to enhance your experience and introduce new features.
+             {contectus.mainparagraph}
           </p>
         </div>
 
@@ -31,12 +37,11 @@ export default function ContactSection() {
           {/* Left Side */}
           <div className="text-left">
             <h3 className="font-semibold text-[28px] md:text-[32px] text-gray-900 mb-4 leading-snug">
-              Schedule a call with us <br className="hidden md:block" />
-              to see if we can help
+              {contectus.heading} <br className="hidden md:block" />
+              
             </h3>
             <p className="font-normal text-[16px] text-gray-600 mb-8 leading-relaxed max-w-lg lg:max-w-md">
-              Whether you’re looking to start a new project or simply want to
-              chat, feel free to reach out to us!
+               {contectus.paragraph}
             </p>
 
             {/* Contact Info */}
@@ -46,7 +51,7 @@ export default function ContactSection() {
                   <FaPhoneAlt size={24} />
                 </div>
                 <span className="font-normal text-[19px] text-gray-800">
-                  +1.890.473.5102
+                  {contectus.text1}
                 </span>
               </li>
 
@@ -55,7 +60,7 @@ export default function ContactSection() {
                   <FaEnvelope size={24} />
                 </div>
                 <span className="font-normal text-[19px] text-gray-800">
-                  hello@yourmail.com
+                  {contectus.text2}
                 </span>
               </li>
 
@@ -64,7 +69,7 @@ export default function ContactSection() {
                   <FaMapMarkerAlt size={24} />
                 </div>
                 <span className="font-normal text-[19px] text-gray-800">
-                  912 Park Ave, Ketchikan, Alaska 99901, USA
+                  {contectus.text3}
                 </span>
               </li>
             </ul>
