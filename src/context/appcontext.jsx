@@ -1,5 +1,5 @@
 "use client";
-import AppContext from "@/context/Appcontext"
+import { AppContext } from "@/context/Appcontext";
 
 import { createContext, useEffect, useState } from "react";
 
