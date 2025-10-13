@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { Layers, Lock, Lightbulb } from "lucide-react";
 import { TiMessages } from "react-icons/ti";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],

@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],

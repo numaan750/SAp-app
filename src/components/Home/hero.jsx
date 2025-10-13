@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Background from "@/Assets/welcome-bg.jpg";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 import { useContext, useEffect, useState } from "react";
 
 const poppins = Poppins({

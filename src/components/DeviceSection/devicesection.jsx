@@ -7,7 +7,7 @@ import { Poppins } from "next/font/google";
 import { TbBoxMultiple } from "react-icons/tb";
 import { RiRouteLine } from "react-icons/ri";
 import { useContext } from "react";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],

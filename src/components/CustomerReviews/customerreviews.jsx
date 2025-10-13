@@ -3,7 +3,7 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import { HeartIcon as HeartOutline } from "@heroicons/react/24/outline";
 import { Poppins } from "next/font/google";
 import { useContext } from "react";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],

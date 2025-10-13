@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { FiCheckCircle } from "react-icons/fi";
 import { TbArrowsMove, TbArrowsLeftRight, TbArrowRightCircle } from "react-icons/tb";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],

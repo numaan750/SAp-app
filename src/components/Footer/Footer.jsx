@@ -6,7 +6,7 @@ import Google from "@/Assets/google-img.png";
 import App from "@/Assets/app-store-img.png";
 import { Poppins } from "next/font/google";
 import { useContext } from "react";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],

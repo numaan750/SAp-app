@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import { TbAdjustments, TbDeviceMobileCog } from "react-icons/tb";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],

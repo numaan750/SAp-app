@@ -1,5 +1,5 @@
 "use client";
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 import { Poppins } from "next/font/google";
 import { useContext } from "react";
 

@@ -2,7 +2,7 @@
 
 import React, { useContext } from 'react';
 import { Poppins } from 'next/font/google';
-import { AppContext } from "@/context/Appcontext";
+import { AppContext } from "@/context/appcontext";
 
 
 const poppins = Poppins({
