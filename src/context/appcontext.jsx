@@ -1,5 +1,7 @@
 "use client";
 
+import { appContext } from "@/context/appcontext";
+
 import { createContext, useEffect, useState } from "react";
 
 export const appContext = createContext();
