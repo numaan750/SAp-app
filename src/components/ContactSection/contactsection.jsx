@@ -2,7 +2,7 @@
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { Poppins } from "next/font/google";
 import { useContext } from "react";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -11,7 +11,7 @@ const poppins = Poppins({
 
 export default function ContactSection() {
   
-  const {contectus} = useContext(AppContext);
+  const {contectus} = useContext(appContext);
 
   if (!contectus)  return <p className="text-center py-10">Loading contectus...</p>;
 

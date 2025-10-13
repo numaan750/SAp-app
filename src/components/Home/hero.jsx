@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Background from "@/Assets/welcome-bg.jpg";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 import { useContext, useEffect, useState } from "react";
 
 const poppins = Poppins({
@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-  const { hero } = useContext(AppContext);
+  const { hero } = useContext(appContext);
 
   const currentHero = Array.isArray(hero) ? hero[0] : hero;
 

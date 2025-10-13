@@ -5,7 +5,7 @@ import { Wand2 } from "lucide-react";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,7 +35,7 @@ const InterfaceSection = () => {
     },
   });
 
-  const { Interface } = useContext(AppContext);
+  const { Interface } = useContext(appContext);
 
   if (!Interface)
     return <p className="text-center py-10">Loading Interface...</p>;

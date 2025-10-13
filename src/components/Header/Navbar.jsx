@@ -3,7 +3,7 @@
 import { useState, useEffect, useContext } from "react";
 import { FaChevronDown, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -17,7 +17,7 @@ const Navbar = () => {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrolled, setScrolled] = useState(false);
-  const { navbar } = useContext(AppContext);
+  const { navbar } = useContext(appContext);
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {

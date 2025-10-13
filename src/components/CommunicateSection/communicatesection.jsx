@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { FiCheckCircle } from "react-icons/fi";
 import { TbArrowsMove, TbArrowsLeftRight, TbArrowRightCircle } from "react-icons/tb";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,7 +13,7 @@ const poppins = Poppins({
 });
 
 const CommunicateSection = () => {
-  const { comunication } = useContext(AppContext);
+  const { comunication } = useContext(appContext);
 
   if (!comunication)
     return <p className="text-center py-10">Loading features...</p>;

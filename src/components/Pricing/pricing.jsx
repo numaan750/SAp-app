@@ -5,7 +5,7 @@ import { GiDutchBike } from "react-icons/gi";
 
 import { Poppins } from "next/font/google";
 import { useContext } from "react";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -14,7 +14,7 @@ const poppins = Poppins({
 
 export default function Pricing() {
 
-   const {pricing} = useContext(AppContext);
+   const {pricing} = useContext(appContext);
    if (!pricing)  return <p className="text-center py-10">Loading reviews...</p>;
 
   return (

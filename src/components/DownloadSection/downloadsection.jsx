@@ -1,5 +1,5 @@
 "use client";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 import { Poppins } from "next/font/google";
 import { useContext } from "react";
 
@@ -10,7 +10,7 @@ const poppins = Poppins({
 
 export function DownloadSection() {
    
-  const {available} = useContext(AppContext);
+  const {available} = useContext(appContext);
 
   if (!available)
     return <p className="text-center py-10">Loading available...</p>;

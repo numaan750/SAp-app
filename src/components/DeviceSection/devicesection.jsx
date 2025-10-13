@@ -7,7 +7,7 @@ import { Poppins } from "next/font/google";
 import { TbBoxMultiple } from "react-icons/tb";
 import { RiRouteLine } from "react-icons/ri";
 import { useContext } from "react";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -16,7 +16,7 @@ const poppins = Poppins({
 
 export default function AvailableSection() {
 
-  const {device} = useContext(AppContext);
+  const {device} = useContext(appContext);
 
   if (!device) return <p className="text-center py-10">Loading features...</p>;
   return (

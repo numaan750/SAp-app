@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import { TbAdjustments, TbDeviceMobileCog } from "react-icons/tb";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 const HowItWorks = () => {
-  const {sapwork} = useContext(AppContext);
+  const {sapwork} = useContext(appContext);
 
   if (!sapwork)
     return <p className="text-center py-10">Loading sapwork...</p>;

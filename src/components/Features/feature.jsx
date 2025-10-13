@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { Layers, Lock, Lightbulb } from "lucide-react";
 import { TiMessages } from "react-icons/ti";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 const Features = () => {
-  const { features } = useContext(AppContext);
+  const { features } = useContext(appContext);
 
   if (!features) return <p className="text-center py-10">Loading features...</p>;
 

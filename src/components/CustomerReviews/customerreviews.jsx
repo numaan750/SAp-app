@@ -3,7 +3,7 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import { HeartIcon as HeartOutline } from "@heroicons/react/24/outline";
 import { Poppins } from "next/font/google";
 import { useContext } from "react";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export default function CustomerReviews() {
 
-  const {reviews} = useContext(AppContext);
+  const {reviews} = useContext(appContext);
   if (!reviews)
     return <p className="text-center py-10">Loading reviews...</p>;
 

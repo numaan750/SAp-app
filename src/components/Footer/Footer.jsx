@@ -6,7 +6,7 @@ import Google from "@/Assets/google-img.png";
 import App from "@/Assets/app-store-img.png";
 import { Poppins } from "next/font/google";
 import { useContext } from "react";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -14,7 +14,7 @@ const poppins = Poppins({
 });
 
 const Footer = () => {
-  const { footer } = useContext(AppContext);
+  const { footer } = useContext(appContext);
 
   if (!footer) return <p className="text-center py-10">Loading footer...</p>;
 

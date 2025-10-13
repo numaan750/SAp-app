@@ -1,11 +1,10 @@
 "use client";
-import { AppContext } from "@/context/appcontext";
 
 import { createContext, useEffect, useState } from "react";
 
-export const AppContext = createContext();
+export const appContext = createContext();
 
-const AppContextProvider = (props) => {
+const appContextProvider = (props) => {
   const [navbar, setNavBar] = useState([]);
   const [hero, sethero] = useState([]);
   const [states, setstates] = useState([]);
@@ -337,7 +336,7 @@ const AppContextProvider = (props) => {
   };
 
   return (
-    <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
+    <appContext.Provider value={value}>{props.children}</appContext.Provider>
   );
 };
-export default AppContextProvider;
+export default appContextProvider;

@@ -2,7 +2,7 @@
 
 import React, { useContext } from 'react';
 import { Poppins } from 'next/font/google';
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 
 const poppins = Poppins({
@@ -16,7 +16,7 @@ const poppins = Poppins({
 
 const State = () => {
   
-  const states = useContext(AppContext);
+  const states = useContext(appContext);
   console.log(states.states,"states")
   const myStates = states.states || {};
   const stats = [

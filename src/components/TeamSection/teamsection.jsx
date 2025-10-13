@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Poppins } from "next/font/google";
-import { AppContext } from "@/context/appcontext";
+import { appContext } from "@/context/appcontext";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -13,7 +13,7 @@ const poppins = Poppins({
 export default function TeamSection() {
   const [active, setActive] = useState(null);
 
-  const {team} = useContext(AppContext);
+  const {team} = useContext(appContext);
   
   if (!team) return <p className="text-center py-10">Loading team...</p>;
 
