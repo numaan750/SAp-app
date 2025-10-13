@@ -18,7 +18,7 @@ const Features = () => {
 
   return (
     <section id="features" className="w-full py-16 bg-white">
-      <div className="Mycontainer max-w-6xl mx-auto flex items-center flex-col text-center">
+      <div className="Mycontainer max-w-6xl mx-auto flex items-center flex-col text-center px-4">
         <span
           className={`${poppins.className} inline-flex items-center gap-2 px-4 py-1 mb-4 text-sm font-medium text-black bg-gray-100 rounded-full`}
         >
@@ -42,7 +42,7 @@ const Features = () => {
           {features.paragraph}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
           {/* Card 1 */}
           <div className="p-10 rounded-2xl shadow-md border border-gray-100 bg-white hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 ease-out">
             <div className="flex justify-center mb-4">
@@ -51,7 +51,9 @@ const Features = () => {
             <h3 className={`${poppins.className} text-[24px] font-[600] mb-2`}>
               {features.card1heading}
             </h3>
-            <p className={`${poppins.className} text-gray-600 text-center leading-relaxed`}>
+            <p
+              className={`${poppins.className} text-gray-600 text-center leading-relaxed break-words max-w-[90%] mx-auto`}
+            >
               {features.card1paragraph}
             </p>
           </div>
@@ -64,7 +66,9 @@ const Features = () => {
             <h3 className={`${poppins.className} text-[24px] font-[600] mb-2`}>
               {features.card2heading}
             </h3>
-            <p className={`${poppins.className} text-gray-600 text-center leading-relaxed`}>
+            <p
+              className={`${poppins.className} text-gray-600 text-center leading-relaxed break-words max-w-[90%] mx-auto`}
+            >
               {features.card2paragraph}
             </p>
           </div>
@@ -77,7 +81,9 @@ const Features = () => {
             <h3 className={`${poppins.className} text-[24px] font-[600] mb-2`}>
               {features.card3heading}
             </h3>
-            <p className={`${poppins.className} text-gray-600 text-center leading-relaxed`}>
+            <p
+              className={`${poppins.className} text-gray-600 text-center leading-relaxed break-words max-w-[90%] mx-auto`}
+            >
               {features.card3paragraph}
             </p>
           </div>

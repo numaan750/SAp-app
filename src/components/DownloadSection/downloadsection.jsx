@@ -9,24 +9,21 @@ const poppins = Poppins({
 });
 
 export function DownloadSection() {
-   
-  const {available} = useContext(appContext);
+  const { available } = useContext(appContext);
 
   if (!available)
     return <p className="text-center py-10">Loading available...</p>;
-    
+
   return (
     <section
-      className={`${poppins.className} relative w-full lg:py-20 bg-cover bg-center flex items-center justify-center bg-fixed`}
+      className={`${poppins.className} relative w-full bg-cover bg-center flex items-center justify-center bg-fixed py-16 sm:py-20 md:py-24`}
       style={{ backgroundImage: `url(${available.backgroundimg})` }}
-
     >
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-[rgba(16,16,45,1)]/85"></div>
 
       {/* Content */}
-      <div className="relative z-10 Mycontainer text-center text-white flex flex-col justify-center items-center px-4 py-12 sm:py-0">
-        
+      <div className="relative z-10 Mycontainer text-center text-white flex flex-col justify-center items-center px-4">
         {/* Heading */}
         <h2 className="font-semibold text-[32px] sm:text-[36px] md:text-[48px] leading-tight mb-6">
           {available.heading}
