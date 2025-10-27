@@ -239,8 +239,8 @@ const appContextProvider = (props) => {
     }
   };
 
+ //navbar k liya
   useEffect(() => {
-    //navbar k liya
     getNavbar();
   }, []);
 

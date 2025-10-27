@@ -42,7 +42,7 @@ export default function Home() {
         className="object-cover object-center"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5337de]/95 to-[#7b53e0]/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5337de]/95 to-[#ffffff]"></div>
 
       <section className="Mycontainer relative w-full">
         <div className="relative z-10 container mx-auto h-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center pt-24 md:pt-32">
