@@ -1,6 +1,5 @@
 "use client";
 
-
 import { createContext, useEffect, useState } from "react";
 
 export const appContext = createContext();
@@ -19,7 +18,8 @@ const appContextProvider = (props) => {
   const [team, setteam] = useState([]);
   const [available, setavailable] = useState([]);
   const [contectus, setContectus] = useState([]);
-  const [footer, setfooter] = useState([])
+  const [footer, setfooter] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   //navbar k liya ya hy
   const getNavbar = async () => {
@@ -239,71 +239,100 @@ const appContextProvider = (props) => {
     }
   };
 
- //navbar k liya
   useEffect(() => {
-    getNavbar();
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        await Promise.all([
+          getNavbar(),
+          gethero(),
+          getstates(),
+          getfeatures(),
+          getdevice(),
+          getcomunication(),
+          getsapwork(),
+          getinterface(),
+          getreviews(),
+          getpricing(),
+          getteam(),
+          getavailable(),
+          getcontectus(),
+          getfooter(),
+        ]);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
   }, []);
 
-  useEffect(() => {
-    //herosection k liya
-    gethero();
-  }, []);
+  //  //navbar k liya
+  //   useEffect(() => {
+  //     getNavbar();
+  //   }, []);
 
-  useEffect(() => {
-    //  states k liya
-    getstates();
-  }, []);
-// features k liya 
+  //   useEffect(() => {
+  //     //herosection k liya
+  //     gethero();
+  //   }, []);
 
-  useEffect(() => {
-    getfeatures();
-  }, []);
+  //   useEffect(() => {
+  //     //  states k liya
+  //     getstates();
+  //   }, []);
+  // // features k liya
 
-  useEffect(() => {
-    // device k liya
-    getdevice();
-  }, []);
+  //   useEffect(() => {
+  //     getfeatures();
+  //   }, []);
 
-  useEffect(() => {
-    // comunication k liya
-    getcomunication();
-  }, []);
+  //   useEffect(() => {
+  //     // device k liya
+  //     getdevice();
+  //   }, []);
 
-  useEffect(() => {
-    // sapwork k liya
-    getsapwork();
-  }, []);
- // interface k liya
-  useEffect(() => {
-    getinterface();
-  }, []);
+  //   useEffect(() => {
+  //     // comunication k liya
+  //     getcomunication();
+  //   }, []);
 
-  useEffect(() => {
-    // revews k liya
-    getreviews();
-  }, []);
-  useEffect(() => {
-    // pricing k liya
-    getpricing();
-  }, []);
-  useEffect(() => {
-    // team k liya
-    getteam();
-  }, []);
-  useEffect(() => {
-    // available k liya
-    getavailable();
-  }, []);
+  //   useEffect(() => {
+  //     // sapwork k liya
+  //     getsapwork();
+  //   }, []);
+  //  // interface k liya
+  //   useEffect(() => {
+  //     getinterface();
+  //   }, []);
 
-  useEffect(() => {
-    // contect us k liya
-    getcontectus();
-  }, []);
+  //   useEffect(() => {
+  //     // revews k liya
+  //     getreviews();
+  //   }, []);
+  //   useEffect(() => {
+  //     // pricing k liya
+  //     getpricing();
+  //   }, []);
+  //   useEffect(() => {
+  //     // team k liya
+  //     getteam();
+  //   }, []);
+  //   useEffect(() => {
+  //     // available k liya
+  //     getavailable();
+  //   }, []);
 
-  // footer k liya
-  useEffect(() => {
-    getfooter();
-  }, []);
+  //   useEffect(() => {
+  //     // contect us k liya
+  //     getcontectus();
+  //   }, []);
+
+  //   // footer k liya
+  //   useEffect(() => {
+  //     getfooter();
+  //   }, []);
 
   const value = {
     navbar,
@@ -320,6 +349,7 @@ const appContextProvider = (props) => {
     available,
     contectus,
     footer,
+    loading,
     getNavbar,
     gethero,
     getstates,
